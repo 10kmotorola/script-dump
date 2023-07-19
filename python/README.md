@@ -1,4 +1,15 @@
 # Scripts
+## hex-converter
+Simply converts hex to decimal and decimal to hex. 
+Please ensure to prefix your hex values with `0x`.
+Made for personal use to streamline the process of developing for RetroAchievements. 
+Refer to the arguments below for command-line usage. 
+Written in Python 3.10.6.
+```
+-i, --info    = how u got here!
+-d, --decimal = decimal input
+-h, --hex     = hex input
+```
 ## password-generator
 This script generates a string of characters primarily used for obtaining secure passwords. 
 It utilizes Python's secrets library instead of its random library, as secrets provides cryptographically strong randomization compared to random's pseudo-random approach.
