@@ -3,20 +3,21 @@ import getopt
 import ast
 
 try:
-    # Options
+    # Options    
     options, arguments = getopt.getopt(sys.argv[1:], "id:h:", ["info", "decimal=", "hex="])
-    # Hex converter
+    # Hex converter    
     for currentArgument, currentValue in options:
-        # Displays help information
+        # Displays help information        
         if currentArgument in ("-i", "--info"):
-            print("hex-converter v1.0.0\n-i, --info    = how u got here!\n"
-                  "-d, --decimal = decimal input\n"
+            print("hex-converter v1.0.1\nhex-converter [OPTIONS] [VALUE]"                  
+                  "\n-i, --info    = how u got here!\n"                  
+                  "-d, --decimal = decimal input\n"                  
                   "-h, --hex     = hex input")
-        # Converts decimal to hex
+        # Converts decimal to hex        
         elif currentArgument in ("-d", "--decimal"):
             dec_value = int(currentValue)
             print(hex(dec_value))
-        # Converts hex to decimal
+        # Converts hex to decimal        
         elif currentArgument in ("-h", "--hex"):
             print(ast.literal_eval(currentValue))
 # Prints errors
