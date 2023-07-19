@@ -1,42 +1,41 @@
+import sys
+import getopt
 import string
 import secrets
 import pyperclip
 
 # Variables
-simp = string.ascii_letters + string.digits
-comp = simp + string.punctuation
+simple_string = string.ascii_letters + string.digits
+complex_string = simple_string + string.punctuation
 
-# Credits and stuff
-print("password-generator v1.1.4")
-
-# Questions
-while True:
-    try:
-        size = int(input("How many characters would you like your password to be? "))
-    except ValueError:
-        print("Please provide an answer in the form of an integer. (¬_¬ ) ")
-        continue
-    else:
-        break
-sc = input("Would you like your password to be (s)imple or (c)omplex? ")
-
-# Password generator
-while True:
-    if sc == "s":
-        password = ''.join(secrets.choice(simp) for i in range(size))
-        print(password)
-        pyperclip.copy(password)
-    elif sc == "c":
-        password = ''.join(secrets.choice(comp) for i in range(size))
-        print(password)
-        pyperclip.copy(password)
-    else:
-        sc = input('The answer you provided means nothing to my python script headass. '
-                   'Please provide an answer containing "s" or "c". ')
-        continue
-    # Regenerate password
-    again = input("Copied to clipboard! Generate again? (y/n) ")
-    if again == "y":
-        pass
-    else:
-        break
+try:
+    # Options    
+    options, arguments = getopt.getopt(sys.argv[1:], "hs:c:", ["help", "simple=", "complex="])
+    # Password generator    
+    for currentArgument, currentValue in options:
+        # Displays help information        
+        if currentArgument in ("-h", "--help"):
+            print("password-generator v2.0.0\npassword-generator.py [OPTIONS] [PASSWORD LENGTH]"
+                  "\n-h, --help    = displays help!\n-s, --simple  = generates password using"
+                  "only numbers and letters\n-c, --complex = generates password using"
+                  "numbers, letters, and punctuation")
+        # Generates simple password        
+        elif currentArgument in ("-s", "--simple"):
+            currentArgument = simple_string
+            password = ''.join(secrets.choice(currentArgument) for i in range(int(currentValue)))
+            print(password)
+            print("Copied to clipboard!")
+            pyperclip.copy(password)
+        # Generates complex password        
+        elif currentArgument in ("-c", "--complex"):
+            currentArgument = complex_string
+            password = ''.join(secrets.choice(currentArgument) for i in range(int(currentValue)))
+            print(password)
+            print("Copied to clipboard!")
+            pyperclip.copy(password)
+# Prints errors
+except getopt.error as error:
+    print(str(error))
+    print("Please read --help.")
+except ValueError:
+    print("Please provide an answer in the form of an integer. (¬_¬ )")
