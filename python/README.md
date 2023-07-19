@@ -5,8 +5,7 @@ Please ensure to prefix your hex values with `0x`.
 Made for personal use to streamline the process of developing for RetroAchievements. 
 Written in Python 3.10.6.
 ```
-hex-converter [OPTIONS] [VALUE]
-
+hex-converter.py [OPTIONS] [VALUE]
 -i, --info    = how u got here!
 -d, --decimal = decimal input
 -h, --hex     = hex input
@@ -17,7 +16,6 @@ It utilizes Python's secrets library instead of its random library, as secrets p
 Written in Python 3.10.6 and requires [pyperclip 1.8.2](https://pypi.org/project/pyperclip/).
 ```
 password-generator.py [OPTIONS] [PASSWORD LENGTH]
-
 -h, --help    = displays help!
 -s, --simple  = generates password using only numbers and letters
 -c, --complex = generates password using numbers, letters, and punctuation
