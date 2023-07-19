@@ -9,7 +9,7 @@ try:
     for currentArgument, currentValue in options:
         # Displays help information        
         if currentArgument in ("-i", "--info"):
-            print("hex-converter v1.0.1\nhex-converter [OPTIONS] [VALUE]"                  
+            print("hex-converter v1.0.1_01\nhex-converter.py [OPTIONS] [VALUE]"                  
                   "\n-i, --info    = how u got here!\n"                  
                   "-d, --decimal = decimal input\n"                  
                   "-h, --hex     = hex input")
